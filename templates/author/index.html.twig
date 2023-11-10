@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AuthorController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Authors Index! ✅</h1>
+    <table border="5" style="width: 100%;">
+    <thead>
+        <th>#</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Nb_books</th>
+        <th colspan="2">Action</th>
+    </thead>
+    <tbody>
+
+        {% for x in authors %}
+        <tr>
+            <td>{{x.id}}</td>
+            <td>{{x.username}}</td>
+            <td>{{x.email}}</td>
+
+            <td>{{x.nbBooks}}</td>
+
+
+
+            <td>
+                <a style="color: blue;" href="/author/edit/{{x.id}}">EDIT</a>
+            </td>
+            <td>
+                <a style="color: red;" href="/author/delete/{{x.id}}">DELETE</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+<br><br>
+    
+</div>
+{% endblock %}
